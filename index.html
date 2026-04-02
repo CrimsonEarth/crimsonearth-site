@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>crimsonearth</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      /* ─── Landing-specific overrides ──────────────────────── */
+      body.landing {
+        justify-content: center;
+        align-items: center;
+      }
+
+      .landing-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100vh;
+        width: 100%;
+        padding: var(--space-xl) var(--space-lg);
+      }
+
+      .landing-top {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: var(--space-xl) 0 var(--space-lg);
+      }
+
+      .landing-wordmark {
+        font-family: var(--font-serif);
+        font-weight: 400;
+        font-size: clamp(2.4rem, 8vw, 5.5rem);
+        letter-spacing: -0.01em;
+        color: var(--text-ink);
+        margin-bottom: var(--space-lg);
+        background: var(--crimson-earth-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .landing-tagline {
+        font-family: var(--font-sans);
+        font-weight: 300;
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        color: var(--text-muted);
+        letter-spacing: 0.02em;
+        max-width: 420px;
+      }
+
+      .landing-nav {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-lg);
+        flex-wrap: wrap;
+        padding: var(--space-xl) 0 var(--space-lg);
+      }
+
+      .landing-nav a {
+        font-family: var(--font-sans);
+        font-weight: 300;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+        text-transform: lowercase;
+        color: var(--text-muted);
+      }
+
+      .landing-nav a:hover {
+        color: var(--accent-clay);
+      }
+
+      .landing-footer {
+        text-align: center;
+        padding-bottom: var(--space-md);
+      }
+
+      .landing-footer p {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="landing">
+    <div class="landing-wrap">
+      <div class="landing-top">
+        <h1 class="landing-wordmark fade-in-up">crimsonearth</h1>
+        <p class="landing-tagline fade-in-up delay-1">
+          Building software, exploring systems, and capturing light.
+        </p>
+      </div>
+
+      <nav class="landing-nav fade-in-up delay-2">
+        <a href="projects.html">projects</a>
+        <a href="photography.html">photography</a>
+        <a href="writing.html">writing</a>
+        <a href="resume.html">resume</a>
+        <a href="https://github.com/CrimsonEarth" target="_blank" rel="noopener">github</a>
+        <a href="contact.html">contact</a>
+      </nav>
+
+      <footer class="landing-footer fade-in-up delay-3">
+        <p>
+          crimsonearth.net &nbsp;·&nbsp; redlands, ca &nbsp;→&nbsp; seattle, wa
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

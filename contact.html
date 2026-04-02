@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>contact — crimsonearth</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .contact-links {
+      display: flex;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-xl);
+    }
+
+    .contact-link {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3em;
+    }
+
+    .contact-link__label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: lowercase;
+      color: var(--text-muted);
+    }
+
+    .contact-link__value {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--text-ink);
+    }
+
+    .contact-link__value:hover {
+      color: var(--accent-clay);
+    }
+
+    .contact-note {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      max-width: 560px;
+    }
+
+    .contact-note__label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: lowercase;
+      color: var(--text-muted);
+    }
+
+    .contact-note__text {
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+
+    .contact-note__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .contact-note__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      background: transparent;
+      border: 1px solid rgba(133, 127, 122, 0.4);
+      padding: 0.6em 1.2em;
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: lowercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .contact-note__link:hover {
+      color: var(--accent-clay);
+      border-color: var(--accent-clay);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="index.html" class="site-nav__wordmark">crimsonearth</a>
+    <ul class="site-nav__links">
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="photography.html">photography</a></li>
+      <li><a href="writing.html">writing</a></li>
+      <li><a href="resume.html">resume</a></li>
+      <li><a href="contact.html" class="active">contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="container container--narrow">
+      <header class="page-header">
+        <p class="page-header__eyebrow">get in touch</p>
+        <h1 class="page-header__title">Contact</h1>
+        <p class="page-header__subtitle">Open to conversations about software, collaboration, or anything interesting.</p>
+      </header>
+
+      <div class="divider"></div>
+
+      <div class="contact-links">
+        <div class="contact-link">
+          <span class="contact-link__label">github</span>
+          <a href="https://github.com/CrimsonEarth" target="_blank" rel="noopener" class="contact-link__value">github.com/CrimsonEarth</a>
+        </div>
+        <div class="contact-link">
+          <span class="contact-link__label">linkedin</span>
+          <a href="https://www.linkedin.com/in/kevinliwag/" target="_blank" rel="noopener" class="contact-link__value">linkedin.com/in/kevinliwag</a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <section class="contact-note" aria-label="contact note">
+        <p class="contact-note__label">for now</p>
+        <p class="contact-note__text">
+          The first version of this site is intentionally simple. The easiest
+          way to reach me today is through GitHub or LinkedIn while I wire up
+          domain email for a later pass.
+        </p>
+        <div class="contact-note__links">
+          <a href="https://github.com/CrimsonEarth" target="_blank" rel="noopener" class="contact-note__link">github</a>
+          <a href="https://www.linkedin.com/in/kevinliwag/" target="_blank" rel="noopener" class="contact-note__link">linkedin</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span class="site-footer__mark">crimsonearth</span>
+    <span class="site-footer__mark" style="font-family:var(--font-sans);font-size:0.75rem;">redlands, ca &nbsp;→&nbsp; seattle, wa</span>
+    <ul class="site-footer__links">
+      <li><a href="https://github.com/CrimsonEarth" target="_blank" rel="noopener">github</a></li>
+      <li><a href="contact.html">contact</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>

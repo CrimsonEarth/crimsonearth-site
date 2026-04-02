@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>photography — crimsonearth</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Placeholder image tones to suggest photos */
+    .photo-placeholder {
+      background-color: #D9D4C9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-placeholder--warm   { background-color: #D9C9B8; }
+    .photo-placeholder--dark   { background-color: #3A3530; }
+    .photo-placeholder--clay   { background-color: #B8846A; }
+    .photo-placeholder--muted  { background-color: #C4BDB5; }
+
+    .photo-placeholder__label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.3);
+      text-transform: lowercase;
+    }
+
+    /* Set fixed heights for the placeholder rows */
+    .photo-item--wide  .photo-placeholder,
+    .photo-item--tall  .photo-placeholder { height: 420px; }
+    .photo-item--half  .photo-placeholder { height: 340px; }
+    .photo-item--third .photo-placeholder { height: 300px; }
+    .photo-item--full  .photo-placeholder { height: 480px; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="index.html" class="site-nav__wordmark">crimsonearth</a>
+    <ul class="site-nav__links">
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="photography.html" class="active">photography</a></li>
+      <li><a href="writing.html">writing</a></li>
+      <li><a href="resume.html">resume</a></li>
+      <li><a href="contact.html">contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="container">
+      <header class="page-header">
+        <p class="page-header__eyebrow">light</p>
+        <h1 class="page-header__title">Photography</h1>
+        <p class="page-header__subtitle">Capturing stillness. Redlands, California and beyond.</p>
+      </header>
+
+      <div class="divider"></div>
+
+      <!-- Row 1: wide + tall -->
+      <div class="photo-gallery" style="margin-bottom: var(--space-md);">
+        <div class="photo-item photo-item--wide">
+          <div class="photo-placeholder photo-placeholder--warm">
+            <span class="photo-placeholder__label">landscape</span>
+          </div>
+          <p class="photo-item__caption">San Bernardino foothills, golden hour</p>
+        </div>
+        <div class="photo-item photo-item--tall">
+          <div class="photo-placeholder photo-placeholder--dark">
+            <span class="photo-placeholder__label">portrait</span>
+          </div>
+          <p class="photo-item__caption">Still life study</p>
+        </div>
+      </div>
+
+      <!-- Row 2: three thirds -->
+      <div class="photo-gallery" style="margin-bottom: var(--space-md);">
+        <div class="photo-item photo-item--third">
+          <div class="photo-placeholder photo-placeholder--clay">
+            <span class="photo-placeholder__label">detail</span>
+          </div>
+          <p class="photo-item__caption">Red clay, Redlands</p>
+        </div>
+        <div class="photo-item photo-item--third">
+          <div class="photo-placeholder">
+            <span class="photo-placeholder__label">architecture</span>
+          </div>
+          <p class="photo-item__caption">Urban geometry</p>
+        </div>
+        <div class="photo-item photo-item--third">
+          <div class="photo-placeholder photo-placeholder--muted">
+            <span class="photo-placeholder__label">nature</span>
+          </div>
+          <p class="photo-item__caption">Morning light</p>
+        </div>
+      </div>
+
+      <!-- Row 3: full width panorama -->
+      <div class="photo-gallery" style="margin-bottom: var(--space-md);">
+        <div class="photo-item photo-item--full">
+          <div class="photo-placeholder photo-placeholder--warm">
+            <span class="photo-placeholder__label">panorama</span>
+          </div>
+          <p class="photo-item__caption">Redlands at dusk — looking east</p>
+        </div>
+      </div>
+
+      <!-- Row 4: tall + wide (reversed) -->
+      <div class="photo-gallery" style="margin-bottom: var(--space-md);">
+        <div class="photo-item photo-item--tall">
+          <div class="photo-placeholder photo-placeholder--clay">
+            <span class="photo-placeholder__label">portrait</span>
+          </div>
+          <p class="photo-item__caption">Study in shadow</p>
+        </div>
+        <div class="photo-item photo-item--wide">
+          <div class="photo-placeholder photo-placeholder--dark">
+            <span class="photo-placeholder__label">landscape</span>
+          </div>
+          <p class="photo-item__caption">Desert brush, late afternoon</p>
+        </div>
+      </div>
+
+      <!-- Row 5: two halves -->
+      <div class="photo-gallery">
+        <div class="photo-item photo-item--half">
+          <div class="photo-placeholder">
+            <span class="photo-placeholder__label">street</span>
+          </div>
+          <p class="photo-item__caption">Citrus Ave</p>
+        </div>
+        <div class="photo-item photo-item--half">
+          <div class="photo-placeholder photo-placeholder--muted">
+            <span class="photo-placeholder__label">texture</span>
+          </div>
+          <p class="photo-item__caption">Bark &amp; dust</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span class="site-footer__mark">crimsonearth</span>
+    <span class="site-footer__mark" style="font-family:var(--font-sans);font-size:0.75rem;">redlands, ca &nbsp;→&nbsp; seattle, wa</span>
+    <ul class="site-footer__links">
+      <li><a href="https://github.com/CrimsonEarth" target="_blank" rel="noopener">github</a></li>
+      <li><a href="contact.html">contact</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>

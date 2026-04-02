@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>font playground · crimsonearth</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- All candidate fonts loaded up front -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?
+    family=Shippori+Mincho:wght@400&
+    family=Zen+Kaku+Gothic+New:wght@300;400&
+    family=Cinzel:wght@400&
+    family=Cormorant:ital,wght@0,300;1,300&
+    family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&
+    family=GFS+Didot&
+    family=Theano+Didot&
+    family=Italiana&
+    family=Josefin+Sans:wght@100;200&
+    family=Raleway:wght@100;200&
+    family=Montserrat:wght@100;200&
+    family=Poppins:wght@100;200&
+    family=Exo+2:wght@100;200&
+    family=Sora:wght@100;200&
+    family=Nunito:wght@200&
+    display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* ─── Page shell ─────────────────────────────────────────── */
+    body.playground {
+      justify-content: center;
+      align-items: center;
+      background-color: var(--bg-paper);
+    }
+
+    /* ─── Preview stage (mirrors landing page) ───────────────── */
+    .preview-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
+      width: 100%;
+      padding: var(--space-xl) var(--space-lg);
+    }
+
+    .preview-top {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: var(--space-xl) 0 var(--space-lg);
+    }
+
+    .preview-wordmark {
+      font-weight: 400;
+      font-size: clamp(2.4rem, 8vw, 5.5rem);
+      letter-spacing: -0.01em;
+      color: var(--text-ink);
+      margin-bottom: var(--space-lg);
+      background: var(--crimson-earth-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: font-family 0.3s ease, letter-spacing 0.3s ease;
+      line-height: 1.15;
+    }
+
+    .preview-tagline {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+      max-width: 420px;
+    }
+
+    .preview-nav {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-lg);
+      flex-wrap: wrap;
+      padding: var(--space-xl) 0 var(--space-lg);
+    }
+
+    .preview-nav a {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: lowercase;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .preview-footer {
+      text-align: center;
+      padding-bottom: var(--space-md);
+    }
+
+    .preview-footer p {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      opacity: 0.5;
+    }
+
+    /* ─── Controls panel ─────────────────────────────────────── */
+    .controls {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(244, 242, 235, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(133, 127, 122, 0.2);
+      padding: 1.25rem var(--space-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      z-index: 200;
+    }
+
+    /* font info */
+    .font-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      min-width: 200px;
+    }
+
+    .font-info__name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--text-ink);
+      font-weight: 400;
+    }
+
+    .font-info__meta {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      text-transform: lowercase;
+    }
+
+    /* nav buttons */
+    .font-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      background: none;
+      border: 1px solid rgba(133, 127, 122, 0.4);
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      padding: 0.45em 1.1em;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      line-height: 1;
+    }
+
+    .btn:hover {
+      color: var(--accent-clay);
+      border-color: var(--accent-clay);
+    }
+
+    .btn--primary {
+      background: var(--crimson-earth-gradient);
+      border-color: transparent;
+      color: #fff;
+      font-weight: 400;
+    }
+
+    .btn--primary:hover {
+      opacity: 0.85;
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .font-counter {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      min-width: 3.5rem;
+      text-align: center;
+    }
+
+    /* quick-pick dots */
+    .font-dots {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .font-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(133, 127, 122, 0.3);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .font-dot.active {
+      background: var(--accent-clay);
+      transform: scale(1.35);
+    }
+
+    .font-dot:hover:not(.active) {
+      background: var(--accent-ochre);
+    }
+
+    /* tooltip on dots */
+    .font-dot[title] {
+      position: relative;
+    }
+
+    /* kbd hint */
+    .kbd-hint {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      opacity: 0.55;
+      letter-spacing: 0.05em;
+      font-family: var(--font-sans);
+      white-space: nowrap;
+    }
+
+    /* spacing tweak so controls don't overlap wordmark */
+    .preview-wrap {
+      padding-bottom: calc(var(--space-xl) + 80px);
+    }
+
+    /* ─── Category filter pills ─────────────────────────────── */
+    .filter-pills {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .pill {
+      background: none;
+      border: 1px solid rgba(133, 127, 122, 0.35);
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      padding: 0.3em 0.85em;
+      cursor: pointer;
+      border-radius: 99px;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      line-height: 1;
+    }
+
+    .pill.active {
+      background: var(--text-ink);
+      border-color: var(--text-ink);
+      color: var(--bg-paper);
+    }
+
+    .pill:hover:not(.active) {
+      color: var(--accent-clay);
+      border-color: var(--accent-clay);
+    }
+
+    /* category badge on font info */
+    .font-info__badge {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.15em 0.55em;
+      border-radius: 3px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
+    .font-info__badge--serif   { background: rgba(176, 91, 72, 0.12); color: var(--accent-clay); }
+    .font-info__badge--sans    { background: rgba(217, 130, 67, 0.12); color: var(--accent-ochre); }
+
+    /* ─── Back link ──────────────────────────────────────────── */
+    .back-link {
+      position: fixed;
+      top: var(--space-md);
+      left: var(--space-lg);
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      color: var(--text-muted);
+      z-index: 201;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--accent-clay); }
+
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
+      }
+      .font-dots { display: none; }
+      .kbd-hint  { display: none; }
+    }
+  </style>
+</head>
+
+<body class="playground">
+
+  <a class="back-link" href="index.html">← back to home</a>
+
+  <!-- ─── Live preview ────────────────────────────────────────── -->
+  <div class="preview-wrap">
+    <div class="preview-top">
+      <h1 class="preview-wordmark" id="wordmark">crimsonearth</h1>
+      <p class="preview-tagline">Building software, exploring systems, and capturing light.</p>
+    </div>
+
+    <nav class="preview-nav" aria-label="page links (demo)">
+      <a>projects</a>
+      <a>photography</a>
+      <a>writing</a>
+      <a>resume</a>
+      <a>github</a>
+      <a>contact</a>
+    </nav>
+
+    <footer class="preview-footer">
+      <p>crimsonearth.net &nbsp;·&nbsp; redlands, ca &nbsp;→&nbsp; seattle, wa</p>
+    </footer>
+  </div>
+
+  <!-- ─── Controls ───────────────────────────────────────────── -->
+  <div class="controls">
+    <div class="font-info">
+      <span class="font-info__name" id="fontName">Shippori Mincho</span>
+      <span class="font-info__badge font-info__badge--serif" id="fontBadge">serif</span>
+      <br/>
+      <span class="font-info__meta" id="fontMeta">current · japanese-influenced serif</span>
+    </div>
+
+    <div class="filter-pills" id="filterPills">
+      <button class="pill active" data-filter="all">all</button>
+      <button class="pill" data-filter="serif">serif</button>
+      <button class="pill" data-filter="sans">sans-serif</button>
+    </div>
+
+    <div class="font-nav">
+      <button class="btn" id="btnPrev" aria-label="previous font">← prev</button>
+      <span class="font-counter" id="fontCounter">1 / 25</span>
+      <button class="btn" id="btnNext" aria-label="next font">next →</button>
+      <button class="btn btn--primary" id="btnSelect" title="Copy font name to clipboard">use this</button>
+    </div>
+
+    <div class="font-dots" id="fontDots" aria-label="jump to font"></div>
+
+    <span class="kbd-hint">← → arrow keys to cycle</span>
+  </div>
+
+  <script>
+    const fonts = [
+      // ── Anchors (keep always) ─────────────────────────────────
+      {
+        name: 'Shippori Mincho',
+        css:  "'Shippori Mincho', 'Georgia', serif",
+        meta: 'current · japanese-influenced serif',
+        category: 'serif',
+        letterSpacing: '-0.01em',
+        fontWeight: '400',
+      },
+      {
+        name: 'Cinzel',
+        css:  "'Cinzel', 'Trajan Pro', serif",
+        meta: 'roman inscription · thin classical caps',
+        category: 'serif',
+        letterSpacing: '0.1em',
+        fontWeight: '400',
+      },
+      // ── Thin / ultra-thin serifs ──────────────────────────────
+      {
+        name: 'Cormorant',
+        css:  "'Cormorant', 'Garamond', serif",
+        meta: 'ultra-thin · the most delicate editorial serif',
+        category: 'serif',
+        letterSpacing: '0.02em',
+        fontWeight: '300',
+      },
+      {
+        name: 'Bodoni Moda',
+        css:  "'Bodoni Moda', serif",
+        meta: 'hairline contrast · high-fashion didone',
+        category: 'serif',
+        letterSpacing: '-0.01em',
+        fontWeight: '400',
+        fontVariationSettings: "'opsz' 6",
+      },
+      {
+        name: 'GFS Didot',
+        css:  "'GFS Didot', 'Didot', serif",
+        meta: 'classical hairline · greek-influenced didot',
+        category: 'serif',
+        letterSpacing: '0em',
+        fontWeight: '400',
+      },
+      {
+        name: 'Theano Didot',
+        css:  "'Theano Didot', 'Didot', serif",
+        meta: 'warm hairline · scholarly classical serif',
+        category: 'serif',
+        letterSpacing: '0.01em',
+        fontWeight: '400',
+      },
+      {
+        name: 'Italiana',
+        css:  "'Italiana', 'Georgia', serif",
+        meta: 'ultra-wispy · fashion editorial display',
+        category: 'serif',
+        letterSpacing: '0.04em',
+        fontWeight: '400',
+      },
+      // ── Ultra-thin sans ───────────────────────────────────────
+      {
+        name: 'Josefin Sans',
+        css:  "'Josefin Sans', 'Helvetica Neue', sans-serif",
+        meta: 'weight 100 · art-deco geometric hairline',
+        category: 'sans',
+        letterSpacing: '0.12em',
+        fontWeight: '100',
+      },
+      {
+        name: 'Raleway',
+        css:  "'Raleway', 'Helvetica Neue', sans-serif",
+        meta: 'weight 100 · calligraphic ultra-thin',
+        category: 'sans',
+        letterSpacing: '0.06em',
+        fontWeight: '100',
+      },
+      {
+        name: 'Montserrat',
+        css:  "'Montserrat', 'Helvetica Neue', sans-serif",
+        meta: 'weight 100 · clean geometric hairline',
+        category: 'sans',
+        letterSpacing: '0.04em',
+        fontWeight: '100',
+      },
+      {
+        name: 'Poppins',
+        css:  "'Poppins', 'Helvetica Neue', sans-serif",
+        meta: 'weight 100 · soft circular geometry',
+        category: 'sans',
+        letterSpacing: '0.05em',
+        fontWeight: '100',
+      },
+      {
+        name: 'Exo 2',
+        css:  "'Exo 2', 'Helvetica Neue', sans-serif",
+        meta: 'weight 100 · slightly technical delicacy',
+        category: 'sans',
+        letterSpacing: '0.03em',
+        fontWeight: '100',
+      },
+      {
+        name: 'Sora',
+        css:  "'Sora', 'Helvetica Neue', sans-serif",
+        meta: 'weight 100 · japanese-influenced ultra-thin',
+        category: 'sans',
+        letterSpacing: '0.04em',
+        fontWeight: '100',
+      },
+      {
+        name: 'Nunito',
+        css:  "'Nunito', 'Helvetica Neue', sans-serif",
+        meta: 'weight 200 · rounded ultra-light',
+        category: 'sans',
+        letterSpacing: '0.01em',
+        fontWeight: '200',
+      },
+    ];
+
+    let activeFilter = 'all';
+    let filteredFonts = [...fonts];
+    let current = 0;
+
+    const wordmark    = document.getElementById('wordmark');
+    const fontName    = document.getElementById('fontName');
+    const fontBadge   = document.getElementById('fontBadge');
+    const fontMeta    = document.getElementById('fontMeta');
+    const fontCounter = document.getElementById('fontCounter');
+    const dotsWrap    = document.getElementById('fontDots');
+    const btnPrev     = document.getElementById('btnPrev');
+    const btnNext     = document.getElementById('btnNext');
+    const btnSelect   = document.getElementById('btnSelect');
+
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      filteredFonts.forEach((f, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'font-dot' + (i === current ? ' active' : '');
+        dot.title = f.name;
+        dot.setAttribute('aria-label', f.name);
+        dot.addEventListener('click', () => setFont(i));
+        dotsWrap.appendChild(dot);
+      });
+    }
+
+    function setFont(idx) {
+      current = (idx + filteredFonts.length) % filteredFonts.length;
+      const f = filteredFonts[current];
+
+      wordmark.style.fontFamily          = f.css;
+      wordmark.style.letterSpacing       = f.letterSpacing || '0em';
+      wordmark.style.fontWeight          = f.fontWeight    || '400';
+      wordmark.style.fontVariationSettings = f.fontVariationSettings || 'normal';
+      fontName.textContent = f.name;
+      fontMeta.textContent = f.meta;
+
+      // badge
+      fontBadge.textContent = f.category === 'sans' ? 'sans-serif' : f.category;
+      fontBadge.className = `font-info__badge font-info__badge--${f.category}`;
+
+      fontCounter.textContent = `${current + 1} / ${filteredFonts.length}`;
+
+      dotsWrap.querySelectorAll('.font-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function applyFilter(filter) {
+      activeFilter = filter;
+      filteredFonts = filter === 'all' ? [...fonts] : fonts.filter(f => f.category === filter);
+      current = 0;
+      buildDots();
+      setFont(0);
+
+      document.querySelectorAll('.pill').forEach(p => {
+        p.classList.toggle('active', p.dataset.filter === filter);
+      });
+    }
+
+    document.getElementById('filterPills').addEventListener('click', e => {
+      if (e.target.classList.contains('pill')) applyFilter(e.target.dataset.filter);
+    });
+
+    btnPrev.addEventListener('click', () => setFont(current - 1));
+    btnNext.addEventListener('click', () => setFont(current + 1));
+
+    btnSelect.addEventListener('click', () => {
+      const f = filteredFonts[current];
+      navigator.clipboard.writeText(f.name).then(() => {
+        const orig = btnSelect.textContent;
+        btnSelect.textContent = 'copied!';
+        setTimeout(() => { btnSelect.textContent = orig; }, 1500);
+      }).catch(() => {
+        alert(`Font: ${f.name}\nCSS: ${f.css}`);
+      });
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  setFont(current - 1);
+      if (e.key === 'ArrowRight') setFont(current + 1);
+    });
+
+    // Initialise
+    buildDots();
+    setFont(0);
+  </script>
+
+</body>
+</html>
