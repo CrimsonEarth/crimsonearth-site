@@ -176,6 +176,18 @@ main {
   opacity: 0.5;
 }
 
+.page-note {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.page-note p {
+  color: var(--text-muted);
+}
+
 /* ─── Gradient Accent Text ───────────────────────────────────── */
 .gradient-text {
   background: var(--crimson-earth-gradient);
