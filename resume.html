@@ -196,13 +196,13 @@
       <header class="resume-header">
         <div>
           <h1 class="resume-header__name">Kevin Liwag</h1>
-          <p class="resume-header__title">Software Engineer &nbsp;·&nbsp; Front-End &amp; Full-Stack</p>
+          <p class="resume-header__title">Solutions Architect &nbsp;·&nbsp; Logistics &amp; Operations Domain &nbsp;·&nbsp; AI Workflow Systems</p>
           <p class="resume-header__title" style="margin-top:0.25rem; font-size:0.8rem;">rooted in Redlands, now in Seattle</p>
         </div>
         <div style="display:flex;gap:var(--space-sm);align-items:center;flex-wrap:wrap;">
           <ul class="resume-header__links">
             <li><a href="https://github.com/CrimsonEarth" target="_blank" rel="noopener">github</a></li>
-            <li><a href="https://www.linkedin.com/in/kevinliwag/" target="_blank" rel="noopener">linkedin</a></li>
+            <li><a href="https://www.linkedin.com/in/kvnliwag/" target="_blank" rel="noopener">linkedin</a></li>
             <li><a href="contact.html">contact</a></li>
           </ul>
           <button class="print-btn" onclick="window.print()">print / pdf</button>
@@ -214,7 +214,7 @@
         <p class="resume-section__label">summary</p>
         <div class="resume-section__body">
           <p style="font-size:1rem; max-width:560px;">
-            Software engineer with 7+ years of experience building and maintaining internal web applications at scale. I tend toward front-end systems work — product surfaces, stateful workflows, and the connective tissue between design and implementation. Lately that extends into AI systems, finance tooling, and game development.
+            Enterprise software engineer and solutions architect with 10+ years translating operational problems into the systems people depend on daily — from WorldShip deployments and logistics reporting at UPS, through multi-system ownership across the iShip/UPS retail platform, to agentic workflow design and MCP tooling. I lead every engagement with discovery: understand the operational context, align with stakeholders on what the system needs to do, and design the right solution. The domain spans logistics, enterprise retail, and AI systems; the approach is the same.
           </p>
         </div>
       </section>
@@ -231,13 +231,11 @@
             </div>
             <p class="exp-entry__org">Cognizant &nbsp;·&nbsp; Greater Seattle Area, Remote</p>
             <ul class="exp-entry__list">
-              <li>Built an Angular-based customer-facing interface for package protection selection, value entry, and pricing review</li>
-              <li>Integrated modern UI with a C# desktop host and legacy JavaScript workflows using CEF and custom interoperability patterns</li>
-              <li>Developed structured workflow logic with XState, improving reliability across multiple layers of the system</li>
-              <li>Implemented multi-tier accessibility scaling for wide deployment across a large retail store network</li>
-              <li>Supported and enhanced returns processing, digital document workflows, and internal store administrative tools</li>
-              <li>Collaborated across engineering and product teams to refine enterprise shipping workflows</li>
-              <li>Stack: Angular, TypeScript, XState, C#/CEF interop</li>
+              <li>Architected and delivered iShip's first greenfield Angular application — a rates and services display tool serving 5,000+ UPS Store locations — developed mock-first with shared component tokens and a full test suite (114 Jest unit tests, 17 Playwright e2e)</li>
+              <li>Designed and delivered a modernized declared value entry system (Angular + XState) replacing a 20-year legacy workflow across four coordinated repositories; extended with full telemetry event coverage wired through the state machine and legacy client layers</li>
+              <li>Designed and built an engineering knowledge base — 20+ runbooks, architectural docs, and dev lane guides serving 40+ team members across engineering, QA, PM, and operations</li>
+              <li>Designed an Azure DevOps MCP server integration enabling agents to manage work items, attach CI/CD artifacts, and update state directly within the development workflow</li>
+              <li>Reduced Copilot CLI cold-start token consumption by ~36% through targeted MCP configuration; created custom agent skills to govern repeatable delivery workflows</li>
             </ul>
           </div>
 
@@ -248,12 +246,7 @@
             </div>
             <p class="exp-entry__org">iShip, Inc. &nbsp;·&nbsp; Bellevue, WA (Hybrid)</p>
             <ul class="exp-entry__list">
-              <li>Took ownership of retail returns, digital communication, and store administration tools</li>
-              <li>Fixed a longstanding UI lifecycle issue affecting a high-volume returns processing system</li>
-              <li>Introduced TypeScript patterns and early state-machine concepts to prepare systems for modernization</li>
-              <li>Conducted architectural evaluation of customer-facing workflows for future Angular migration</li>
-              <li>Mentored junior developers on debugging strategies and modern coding practices</li>
-              <li>Stack: Angular, JavaScript, TypeScript</li>
+              <li>Promoted to SE II; retained full ownership of retail returns, customer communication, and store-administration tooling through the Cognizant transition</li>
             </ul>
           </div>
 
@@ -264,28 +257,37 @@
             </div>
             <p class="exp-entry__org">iShip, Inc. &nbsp;·&nbsp; Bellevue, WA (Hybrid)</p>
             <ul class="exp-entry__list">
-              <li>Enhanced enterprise retail/shipping systems across customer communication, returns processing, and administration workflows</li>
-              <li>Led front-end development on a clerk/customer workflow tool — added customer profiles, drop-off processing, and a simplified UX that measurably reduced friction for in-store reps</li>
-              <li>Delivered Container Management UI enhancements reducing errors in consolidated returns processing</li>
-              <li>Shipped Electronic International Documents and Happy Returns UI end-to-end</li>
-              <li>Drove TypeScript conversion across the PSS Client codebase (phases 5 &amp; 6), improving type safety and unblocking cross-team work</li>
-              <li>Migrated legacy JavaScript modules to TypeScript; implemented communication layers separating UI and logic during modernization</li>
-              <li>Stack: JavaScript, TypeScript, Sencha/ExtJS, Azure DevOps, SASS</li>
+              <li>Designed and delivered solutions across five distinct retail systems — shipping, returns processing, customer communication, store administration, and Amazon returns management — supporting 5,000+ UPS Store locations on a hybrid of legacy and modern Angular/TypeScript stacks</li>
+              <li>Led phases 5 and 6 of a multi-phase TypeScript conversion across the retail platform codebase, improving type safety and enabling faster cross-functional development on shared surfaces</li>
+              <li>Integrated Happy Returns into the Amazon returns management system, enabling associates to process third-party drop-offs alongside standard Amazon returns in a unified in-store workflow</li>
+              <li>Redesigned the UPS Mobile drop-off workflow: introduced customer profiles and simplified the end-to-end associate experience across tens of thousands of daily drop-offs</li>
+              <li>Built a three-plus-year AI practice starting with GitHub Copilot (~2021) — evolving through prompt engineering and MCP infrastructure into agentic workflows that accelerate the full delivery cycle from defect triage to release</li>
             </ul>
           </div>
 
           <div class="exp-entry">
             <div class="exp-entry__header">
-              <h2 class="exp-entry__role">Application Developer</h2>
-              <span class="exp-entry__period">2017 — 2021</span>
+              <h2 class="exp-entry__role">Web Developer — IE Data Systems &amp; Management Reporting</h2>
+              <span class="exp-entry__period">Aug 2016 — Oct 2021</span>
             </div>
-            <p class="exp-entry__org">EUD Team &nbsp;·&nbsp; Enterprise Logistics</p>
+            <p class="exp-entry__org">UPS — Industrial Engineering / End User Development &nbsp;·&nbsp; Seattle, WA</p>
             <ul class="exp-entry__list">
-              <li>Served as lead UI/UX developer for an internal operations tool — owned all front-end work across the full application lifecycle</li>
-              <li>Shipped major features: Admin Page, Non-Consecutive Dates workflow, Morning Report, and a Dashboard proof of concept</li>
-              <li>Closed 79 bugs and led a component refactor that improved data entry reliability across the app</li>
-              <li>Recognized by management for exceptional quality, reliability, and deep ownership across all areas of UI/UX development</li>
-              <li>Stack: JavaScript, React, CSS</li>
+              <li>Built and maintained front-end reporting tools for the Industrial Engineering team, processing millions of SQL rows daily to surface volume matrices, Early AM tracking reports, and logistics dashboards for management decision-making</li>
+              <li>Led GEAR end-to-end as sole UI/UX designer and front-end developer — a Vue.js IE planning and operations tool scoped from requirements through production deployment and iterative support; mentored a junior developer through the full development lifecycle</li>
+              <li>Resolved 79 production bugs and delivered 4 major features (Morning Report, Admin, Non-Consecutive Dates, Dashboard PoC) while leading a codebase refactor to improve long-term maintainability</li>
+              <li>Maintained and migrated a suite of 5+ reporting tools from ColdFusion to Vue.js; delivered the team's first mobile-compatible tool under a high-priority deadline with mid-stream requirement changes</li>
+            </ul>
+          </div>
+
+          <div class="exp-entry">
+            <div class="exp-entry__header">
+              <h2 class="exp-entry__role">TSG Technician — Field Support &amp; WorldShip Deployments</h2>
+              <span class="exp-entry__period">Aug 2014 — Jul 2016</span>
+            </div>
+            <p class="exp-entry__org">UPS — Technical Support Group &nbsp;·&nbsp; Seattle, WA</p>
+            <ul class="exp-entry__list">
+              <li>Provided on-site technical support for 100+ UPS business customers with active shipping contracts — installing and configuring WorldShip hardware, server, and client environments across the Pacific Northwest district</li>
+              <li>Conducted one-on-one needs assessments to understand customer shipping requirements, recommended appropriate UPS tools and services, and implemented solutions on-site</li>
             </ul>
           </div>
 

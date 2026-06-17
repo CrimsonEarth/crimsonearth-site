@@ -40,64 +40,83 @@
         <li class="project-item project-item--featured">
           <div class="project-item__meta">
             <p class="project-item__number">01</p>
-            <h2 class="project-item__title">Personal Dashboard</h2>
+            <h2 class="project-item__title">forge</h2>
             <div class="project-item__tags">
-              <span class="tag">finance</span>
-              <span class="tag">react</span>
-              <span class="tag">data viz</span>
+              <span class="tag">typescript</span>
+              <span class="tag">event-sourced</span>
+              <span class="tag">postgresql</span>
+              <span class="tag">llm</span>
             </div>
           </div>
           <div class="project-item__body">
-            <p class="project-item__desc">A living personal finance dashboard built as a functional proof of concept. Tracks income, expenses, savings goals, and net worth over time with clean data visualizations. The finance module is the core — a real tool used daily.</p>
-            <p class="project-item__status">Private tool · public case study coming.</p>
+            <p class="project-item__desc">LLMs in production need structured work boundaries — unbounded sessions drift and can't be replayed or evaluated. A CLI-first, event-sourced execution runtime constraining LLM work into typed stages (triage → deliberation → DAG planning → worker/judge execution → artifact snapshot), backed by PostgreSQL with advisory-lock append safety. TypeScript monorepo across 10+ packages, deterministic in-memory test harness, and 179 passing tests. One layer of a three-layer architecture communicating through typed contracts, not internal bindings.</p>
+            <p class="project-item__status">Active development · private.</p>
           </div>
         </li>
 
         <li class="project-item">
           <div class="project-item__meta">
             <p class="project-item__number">02</p>
-            <h2 class="project-item__title">Lumi</h2>
+            <h2 class="project-item__title">Marginalia</h2>
             <div class="project-item__tags">
-              <span class="tag">ai agents</span>
-              <span class="tag">python</span>
-              <span class="tag">llm</span>
+              <span class="tag">react</span>
+              <span class="tag">electron</span>
+              <span class="tag">openai</span>
+              <span class="tag">typescript</span>
             </div>
           </div>
           <div class="project-item__body">
-            <p class="project-item__desc">A multi-agent system that coordinates specialized AI agents for complex tasks. Explores orchestration patterns, tool use, and long-horizon reasoning in language models.</p>
-            <p class="project-item__status">Active system · public overview coming.</p>
+            <p class="project-item__desc">Document review in most tools is passive — opening a file leaves no durable record. A version-aware reading workspace where review is an explicit lifecycle: annotations, highlights, voice segments, and transcripts captured as a structured, append-only record. React + Vite frontend, Electron shell for IPC-backed filesystem access, OpenAI integration for narration and transcription, slash-command navigation, and Markdown export. Runs in browser, Docker, and Electron modes.</p>
+            <p class="project-item__status">Active · private.</p>
           </div>
         </li>
 
         <li class="project-item">
           <div class="project-item__meta">
             <p class="project-item__number">03</p>
-            <h2 class="project-item__title">Godot Development</h2>
+            <h2 class="project-item__title">crimsonearth-ai-runtime</h2>
             <div class="project-item__tags">
-              <span class="tag">game dev</span>
-              <span class="tag">gdscript</span>
-              <span class="tag">godot 4</span>
+              <span class="tag">typescript</span>
+              <span class="tag">mcp</span>
+              <span class="tag">ai runtime</span>
             </div>
           </div>
           <div class="project-item__body">
-            <p class="project-item__desc">Game development explorations in Godot Engine — from small game jams to longer-form projects. Emphasis on systems design, procedural generation, and narrative-driven mechanics.</p>
-            <p class="project-item__status">Ongoing practice · notes and small builds to come.</p>
+            <p class="project-item__desc">AI configurations drift across tools, producing inconsistent agent behavior when moving between Copilot, OpenCode, or Gemini CLI. A portable runtime package spanning 3 AI platforms — reusable instruction sets, durable skills, tool adapters, design doctrine, and machine-safe configuration boundaries — with non-destructive startup self-checks to detect drift without mutating local state.</p>
+            <p class="project-item__status">Active · private.</p>
           </div>
         </li>
 
         <li class="project-item">
           <div class="project-item__meta">
             <p class="project-item__number">04</p>
+            <h2 class="project-item__title">crimsonearth-kb</h2>
+            <div class="project-item__tags">
+              <span class="tag">sqlite</span>
+              <span class="tag">go</span>
+              <span class="tag">mcp</span>
+              <span class="tag">obsidian</span>
+            </div>
+          </div>
+          <div class="project-item__body">
+            <p class="project-item__desc">Repeated raw search across a personal knowledge vault is slow at agent speed. Two complementary tools: a local KB MCP server with SQLite-backed full-text indexing and structured retrieval commands over a multi-hundred-note Obsidian vault; and a Go-based journal MCP/CLI for daily entry management — giving agents a fast, reusable retrieval surface without raw file access.</p>
+            <p class="project-item__status">Active · private.</p>
+          </div>
+        </li>
+
+        <li class="project-item">
+          <div class="project-item__meta">
+            <p class="project-item__number">05</p>
             <h2 class="project-item__title">TokenFlow</h2>
             <div class="project-item__tags">
-              <span class="tag">llm</span>
-              <span class="tag">golang</span>
+              <span class="tag">typescript</span>
+              <span class="tag">firebase</span>
               <span class="tag">cli</span>
             </div>
           </div>
           <div class="project-item__body">
-            <p class="project-item__desc">A token visualization and analysis tool for working with language model inputs and outputs. Helps reason about context windows, token budgets, and prompt structure.</p>
-            <p class="project-item__status">Private prototype · public write-up coming.</p>
+            <p class="project-item__desc">A family token economy app: per-user interest calculations, atomic Firestore transactions for award and spend operations, birthday detection with automatic bonuses, and a full command surface via Commander.js. Ran in production for two years as a real household tool. Primary vehicle for learning real-time database design and Firestore transaction patterns.</p>
+            <p class="project-item__status">Retired · private.</p>
           </div>
         </li>
 
